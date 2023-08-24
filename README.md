@@ -18,42 +18,34 @@ To implement univariate Linear Regression to fit a straight line using least squ
 
 ## Program:
 ```
+Program to implement univariate Linear Regression to fit a straight line using least squares.
+Developed by:   Arun.j
+RegisterNumber:  212222040015
+*/
 import numpy as np
 import matplotlib.pyplot as plt
-
-# Simulated data
-X = np.array([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])  # Independent variable
-Y = np.array([2, 4, 5, 4, 6, 7, 8, 8, 10, 9])  # Dependent variable
-
-# Calculate means
-x_mean = np.mean(X)
-y_mean = np.mean(Y)
-
-# Calculate slope (m) and y-intercept (b)
-m = np.sum((X - x_mean) * (Y - y_mean)) / np.sum((X - x_mean)**2)
-b = y_mean - m * x_mean
-
-# Equation of the line
-equation = f"Y = {m:.2f}X + {b:.2f}"
-
-# Create the best fit line
-best_fit_line = m * X + b
-
-# Plotting the data points and the best fit line
-plt.scatter(X, Y, label='Data Points')
-plt.plot(X, best_fit_line, color='red', label='Best Fit Line')
-plt.xlabel('X')
-plt.ylabel('Y')
-plt.title('Univariate Linear Regression')
-plt.legend()
-plt.grid(True)
-plt.text(6, 9, equation, fontsize=12, color='blue')
+X=np.array(eval(input()))
+Y=np.array(eval(input()))
+Xmean=np.mean(X)
+Ymean=np.mean(Y)
+num,den=0,0 # num = numerator, den = denomenator
+for i in range(len(X)):
+  num+=(X[i]-Xmean)*(Y[i]-Ymean)
+  den+=(X[i]-Xmean)**2
+m=num/den
+c=Ymean-m*Xmean
+print(m,c)
+Y_pred=m*X+c
+print(Y_pred)
+plt.scatter(X,Y)
+plt.plot(X,Y_pred,color="red")
 plt.show()
 
 ```
 
 ## Output:
-![Screenshot (18)](https://github.com/arun1111j/Find-the-best-fit-line-using-Least-Squares-Method/assets/128461833/41c290d7-918c-4d5d-b6b8-3494be1de6c3)
+
+![WhatsApp Image 2023-08-24 at 09 46 25](https://github.com/arun1111j/Find-the-best-fit-line-using-Least-Squares-Method/assets/128461833/fb6fd269-f502-48fa-8aea-740f6f07d818)
 
 
 
